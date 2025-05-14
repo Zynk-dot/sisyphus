@@ -1,25 +1,27 @@
-const wrapper = document.getElementById('characterWrapper');
 const rock = document.getElementById('rock');
 const overlayText = document.getElementById('overlayText');
 const hintText = document.getElementById('hintText');
 
-let progress = 0;
+let progressX = 0;
 let holding = false;
 let falling = false;
 let showHint = true;
 let tapsNeeded = 0;
 let tapsDone = 0;
-let rockRotation = 0;
+let rotation = 0;
 
-function updatePosition() {
-  const x = 100 + progress;
-  const y = window.innerHeight - 200 - (progress * 0.5); 
-
-  wrapper.style.left = `${x}px`;
-  wrapper.style.bottom = `${window.innerHeight - y}px`; 
-  rockRotation += 10;
-  rock.style.transform = `rotate(${rockRotation}deg)`;
-}
+function updateRockPosition() {
+    const x = 5 + progressX;
+    const y = window.innerHeight - (0.5 * progressX) - 90; 
+  
+    const wrapper = document.getElementById('characterWrapper');
+    wrapper.style.left = `${x}px`;
+    wrapper.style.top = `${y}px`;
+  
+    rotation += 5;
+    rock.style.transform = `rotate(${rotation}deg)`;
+  }  
+  
 
 function startFalling() {
   falling = true;
@@ -42,8 +44,9 @@ function stopFalling() {
 
 setInterval(() => {
   if (holding && !falling) {
-    progress += 2;
-    updatePosition();
+    progressX += 2;
+    updateRockPosition();
+
     if (Math.random() < 0.01) {
       startFalling();
     }
@@ -69,5 +72,3 @@ document.addEventListener('keyup', (e) => {
     holding = false;
   }
 });
-
-window.addEventListener('resize', updatePosition);

@@ -1,0 +1,84 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: url('assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+  
+  #game {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  #slopeContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+  }
+
+  #slope {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw; 
+    height: auto;
+    z-index: 1;
+  }
+  
+  #characterWrapper {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    gap: 0vw; 
+    transform: rotate(-26.5deg);
+    transform-origin: bottom left;
+    z-index: 2;
+  }
+
+  
+  #rock {
+    width: 6vw;
+    height: auto;
+    transition: transform 0.05s linear;
+  }
+
+  #sisyphus {
+    height: 10vh;
+    width: auto;
+    transform: translateY(5%); /* lower him a bit */
+  }
+  
+  #rock {
+    width: 6vw;
+    height: auto;
+    transform: translateY(3%); /* match rock bottom to slope */
+  }
+  
+  
+  #overlayText, #hintText {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 2.5vh;
+    z-index: 3;
+    color: black;
+    text-shadow: 1px 1px 2px white;
+  }
+  
+  #overlayText {
+    top: 30%;
+  }
+  
+  #hintText {
+    top: 70%;
+    color: orange;
+    display: none;
+  }
+  
