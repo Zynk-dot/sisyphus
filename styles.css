@@ -1,0 +1,64 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+    background: url('assets/background.png') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  #game {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  #slope {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    bottom: 0;
+    z-index: 1;
+  }
+  
+  #characterWrapper {
+    position: absolute;
+    bottom: 150px; 
+    left: 100px;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  
+  #sisyphus {
+    height: 80px; 
+  }
+  
+  #rock {
+    width: 60px;
+    transition: transform 0.05s linear;
+  }
+  
+  #overlayText, #hintText {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    z-index: 3;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+  }
+  
+  #overlayText {
+    top: 30%;
+  }
+  
+  #hintText {
+    top: 70%;
+    color: yellow;
+    display: none;
+  }
+  
