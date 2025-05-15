@@ -1,7 +1,3 @@
-/* =========================================================
-   Sisyphus Game – full script (2025‑05‑15)
-   ========================================================= */
-
 /* === DOM LOOK‑UPS ===================================== */
 const flatScene = document.getElementById('flatScene');
 const climbScene = document.getElementById('climbScene');
@@ -24,6 +20,8 @@ const zeusLine = document.getElementById('zeusLine');
 
 const endText = document.getElementById('endText');
 
+const CLIMB_BASE_Y = 100;
+
 /* === LOOP‑SPECIFIC STORY DATA ========================= */
 const LOOPS = [
   {
@@ -32,7 +30,7 @@ const LOOPS = [
       { x: 120,  text: "He once ruled Ephyra.",        dur: 2600 },
       { x: 400,  text: "He defied the gods.",          dur: 2400 },
       { x: 760,  text: "Punishment became legend.",    dur: 2400 },
-      { x: 1050, text: "Now legend becomes routine.",  dur: 2800 }
+      { x: 950, text: "Now legend becomes routine.",  dur: 2800 }
     ]
   },
   {
@@ -41,7 +39,7 @@ const LOOPS = [
       { x: 140,  text: "Second ascent. Same rock.",    dur: 2400 },
       { x: 420,  text: "Hope is already thinning.",    dur: 2400 },
       { x: 780,  text: "Zeus watches, amused.",        dur: 2400 },
-      { x: 1080, text: "The summit? A mirage.",        dur: 2600 }
+      { x: 1000, text: "The summit? A mirage.",        dur: 2600 }
     ]
   },
   {
@@ -50,7 +48,7 @@ const LOOPS = [
       { x: 160,  text: "His spine screams.",           dur: 2400 },
       { x: 450,  text: "Stones remember nothing.",     dur: 2400 },
       { x: 800,  text: "The gods remember everything.",dur: 2400 },
-      { x: 1100, text: "Forever is a very long time…", dur: 3000 }
+      { x: 980, text: "Forever is a very long time…", dur: 3000 }
     ]
   }
 ];
@@ -68,7 +66,7 @@ const Z = {
 };
 
 /* === CONFIG (TWEAK HERE) ============================== */
-const CLIMB_END_X = 1600;
+const CLIMB_END_X = 1020;
 const SLIP_CHANCE = 0.003;
 
 /* === STATE VARS ======================================= */

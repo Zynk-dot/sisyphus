@@ -128,7 +128,7 @@ body {
 /* === TRANSITION OVERLAYS ================================= */
 .overlay {
   position: absolute;
-  bottom: calc(var(--ground-h) - 14vh);
+  bottom: calc(var(--ground-h) - 17vh);
   left: 65vw;
   height: 12vh;
   width: auto;
@@ -136,17 +136,19 @@ body {
 }
 
 /* === END TEXT & PROOF ==================================== */
-#endText {
-  position: absolute;
-  top: 10vh;
-  left: 6vw;
-  max-width: 650px;
-  color: #ffe8d0;
-  font-size: clamp(18px, 1.6rem, 36px);
-  line-height: 1.4;
-  white-space: pre-line;
-  text-shadow: 2px 2px 4px #000;
-  z-index: 5;
+#endText{
+  position:absolute;
+  top:50%; left:50%;                     
+  transform:translate(-50%,-50%);        
+  width:90vw;                            
+  max-width:none;                        
+  color:#ffe8d0;
+  font-size:clamp(18px,1.6rem,38px);
+  line-height:1.4;
+  text-align:center;                     
+  white-space:pre-line;
+  text-shadow:2px 2px 4px #000;
+  z-index:5;
 }
 
 #proofImg {
