@@ -2,22 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sisyphus Game</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="game">
-    <div id="slopeContainer">
-      <img id="slope" src="assets/slope.png" alt="Slope" />
-      <div id="characterWrapper">
-        <img id="sisyphus" src="assets/sisyphus.webp" alt="Sisyphus" />
-        <img id="rock" src="assets/rock.png" alt="Rock" />
-      </div>
+
+  <!-- ── Scene 1 : Flat Ground ─────────────────────────── -->
+  <div id="flatScene" class="scene">
+    <img id="flatBg" src="assets/fatground.webp" alt="Flat ground strip">
+    <div id="flatPair">
+      <img id="flatMan"  src="assets/sisyphus.gif" alt="Sisyphus">
+      <img id="flatRock" src="assets/rock.webp"     alt="Rock">
     </div>
-    <div id="overlayText">Hold → key to start</div>
-    <div id="hintText">Tap → quickly to stop falling!</div>
   </div>
+
+  <!-- ── Scene 2 : Climb ───────────────────────────────── -->
+  <div id="climbScene" class="scene hidden">
+    <img id="slope" src="assets/slope.webp  " alt="Slope">
+    <div id="characterWrapper">
+      <img id="sisyphus" src="assets/sisyphus.gif" alt="Sisyphus">
+      <img id="rock"     src="assets/rock.webp"     alt="Rock">
+    </div>
+  </div>
+
+  <!-- ── Scene 3 : Top ─────────────────────────────────── -->
+  <div id="topScene" class="scene hidden">
+    <img id="topBg" src="assets/mountaintop.png" alt="Mountain top">
+    <div id="sisyphusTop"><img src="assets/sisyphus_hold.webp"></div>
+  </div>
+
+  <!-- ── Dialog Elements ───────────────────────────────── -->
+  <div id="narrBox"  class="hidden"></div>   <!-- framed narrator -->
+  <div id="zeusLine" class="hidden"></div>   <!-- floating Zeus   -->
+
   <script src="game.js"></script>
 </body>
 </html>
