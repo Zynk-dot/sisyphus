@@ -2,39 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sisyphus Game</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Sisyphus Game</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/webp" href="assets/rock.webp">
 </head>
 <body>
 
-  <!-- ── Scene 1 : Flat Ground ─────────────────────────── -->
+  <!-- ── Scene 1 : Flat Ground ─────────────────────────── -->
   <div id="flatScene" class="scene">
     <img id="flatBg" src="assets/fatground.webp" alt="Flat ground strip">
     <div id="flatPair">
       <img id="flatMan"  src="assets/sisyphus.gif" alt="Sisyphus">
       <img id="flatRock" src="assets/rock.webp"     alt="Rock">
     </div>
+    <img id="rollAnim" class="overlay hidden" src="assets/rolling.gif" alt="Rolling">
   </div>
 
-  <!-- ── Scene 2 : Climb ───────────────────────────────── -->
+  <!-- ── Scene 2 : Climb ───────────────────────────────── -->
   <div id="climbScene" class="scene hidden">
-    <img id="slope" src="assets/slope.webp  " alt="Slope">
+    <img id="slope" src="assets/slope.webp" alt="Slope">
     <div id="characterWrapper">
       <img id="sisyphus" src="assets/sisyphus.gif" alt="Sisyphus">
       <img id="rock"     src="assets/rock.webp"     alt="Rock">
     </div>
   </div>
 
-  <!-- ── Scene 3 : Top ─────────────────────────────────── -->
+  <!-- ── Scene 3 : Mountain Top ────────────────────────── -->
   <div id="topScene" class="scene hidden">
     <img id="topBg" src="assets/mountaintop.png" alt="Mountain top">
-    <div id="sisyphusTop"><img src="assets/sisyphus_hold.webp"></div>
+    <img id="crushAnim" class="overlay hidden" src="assets/crush.gif" alt="Crush">
+  </div>
+
+  <!-- ── Scene 4 : Ending / Credits ────────────────────── -->
+  <div id="endScene" class="scene hidden">
+    <img id="endBg" src="assets/end.webp" alt="End background">
+    <div id="endText"></div>
+    <img id="proofImg" class="hidden" src="" alt="Proof image">
   </div>
 
   <!-- ── Dialog Elements ───────────────────────────────── -->
-  <div id="narrBox"  class="hidden"></div>   <!-- framed narrator -->
-  <div id="zeusLine" class="hidden"></div>   <!-- floating Zeus   -->
+  <div id="narrBox"  class="hidden"></div>
+  <div id="zeusLine" class="hidden"></div>
 
   <script src="game.js"></script>
 </body>

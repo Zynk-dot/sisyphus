@@ -1,92 +1,221 @@
 /* === GLOBAL ============================================== */
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{
-  width:100vw;height:100vh;overflow:hidden;
-  font-family:"Georgia",serif;
-  background:url("assets/background.png") center/cover no-repeat fixed;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Georgia", serif;
+  background: url("assets/background.png") center / cover no-repeat fixed;
 }
 
 /* Horizon strip height used everywhere */
-:root{ --ground-h: 40vh; }        
+:root {
+  --ground-h: 40vh;
+}
 
 /* === SCENES ============================================== */
-.scene{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}
-.hidden{display:none}
-
-#flatBg,#topBg{
-  width:100%;object-fit:cover;
-  height:auto;                 
-  max-height:var(--ground-h);
-  position:absolute;bottom:0;left:0;object-position:bottom left;
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-#slope{
-  position:absolute;
-  bottom:0; left:0;
-  width:100vw;      
-  height:auto;
-  clip-path:polygon(0% 100%, 100% 0%, 100% 100%);
+.hidden {
+  display: none;
 }
 
+/* === BACKGROUNDS ========================================= */
+#flatBg,
+#topBg {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+#flatBg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-height: var(--ground-h);
+  object-position: bottom left;
+}
+
+#topBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  object-position: center center;
+}
+
+#slope {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: auto;
+  clip-path: polygon(0% 100%, 100% 0%, 100% 100%);
+}
+
+#endBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
 
 /* === FLAT PAIR =========================================== */
-/* ── flat pair on ground strip ───────────────────────── */
-#flatPair{
-  position:absolute;
-  bottom:calc(var(--ground-h) - 14vh);   
-  left:65vw;
-  display:flex;                          
-  align-items:flex-end;
-  gap:0.8vw;
-  z-index:3;
+#flatPair {
+  position: absolute;
+  bottom: calc(var(--ground-h) - 14vh);
+  left: 65vw;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.8vw;
+  z-index: 3;
 }
-#flatMan {height:12vh;width:auto}
-#flatRock{width:6vw;height:auto;transition:transform .05s linear}
+
+#flatMan {
+  height: 12vh;
+  width: auto;
+}
+
+#flatRock {
+  width: 6vw;
+  height: auto;
+  transition: transform 0.05s linear;
+}
 
 /* === CLIMB PAIR ========================================== */
-#characterWrapper{
-  position:absolute;z-index:2;
-  display:flex;align-items:flex-end;gap:1vw;
-  transform:rotate(-26.5deg);transform-origin:bottom left;
-  transition:top .2s,left .2s;
+#characterWrapper {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 1vw;
+  transform: rotate(-26.5deg);
+  transform-origin: bottom left;
+  transition: top 0.2s, left 0.2s;
 }
-#sisyphus{height:12vh;width:auto}
-#sisyphus.paused{animation:none}
-#rock{width:6vw;height:auto;transition:transform .05s linear}
 
-/* === TOP SPRITE ========================================== */
-#sisyphusTop{
-  position:absolute;
-  bottom:calc(var(--ground-h) - 14vh);  
-  left:5vw;
+#sisyphus {
+  height: 12vh;
+  width: auto;
 }
-#sisyphusTop img{height:14vh;width:auto}
+
+#sisyphus.paused {
+  animation: none;
+}
+
+#rock {
+  width: 6vw;
+  height: auto;
+  transition: transform 0.05s linear;
+}
+
+/* === TRANSITION OVERLAYS ================================= */
+.overlay {
+  position: absolute;
+  bottom: calc(var(--ground-h) - 14vh);
+  left: 65vw;
+  height: 12vh;
+  width: auto;
+  z-index: 4;
+}
+
+/* === END TEXT & PROOF ==================================== */
+#endText {
+  position: absolute;
+  top: 10vh;
+  left: 6vw;
+  max-width: 650px;
+  color: #ffe8d0;
+  font-size: clamp(18px, 1.6rem, 36px);
+  line-height: 1.4;
+  white-space: pre-line;
+  text-shadow: 2px 2px 4px #000;
+  z-index: 5;
+}
+
+#proofImg {
+  position: absolute;
+  bottom: 4vh;
+  right: 4vw;
+  max-width: 30vw;
+  max-height: 35vh;
+  border: 3px solid #ffe8d0;
+  box-shadow: 0 0 10px #000;
+  z-index: 5;
+}
 
 /* === DIALOG STYLES ======================================= */
-/* Narrator (framed) */
-#narrBox{
-  position:absolute;top:2vh;left:2vw;z-index:10;
-  max-width:420px;width:32vw;padding:1rem 1.3rem;
-  background:#712811;color:#ffe8d0;border:3px solid #000;
-  box-shadow:0 0 10px #000;
-  white-space:pre-line;line-height:1.35;
-  font-size:clamp(14px,1.15rem,24px);
+#narrBox {
+  position: absolute;
+  top: 2vh;
+  left: 2vw;
+  z-index: 10;
+  max-width: 420px;
+  width: 32vw;
+  padding: 1rem 1.3rem;
+  background: #712811;
+  color: #ffe8d0;
+  border: 3px solid #000;
+  box-shadow: 0 0 10px #000;
+  white-space: pre-line;
+  line-height: 1.35;
+  font-size: clamp(14px, 1.15rem, 24px);
 }
-/* Zeus (floating) */
-#zeusLine{
-  position:absolute;top:2vh;left:2vw;z-index:10;
-  color:#ffe8d0;font-weight:700;
-  font-size:clamp(14px,1.25rem,26px);
-  text-shadow:2px 2px 4px #000;
+
+#zeusLine {
+  position: absolute;
+  top: 2vh;
+  left: 2vw;
+  z-index: 10;
+  color: #ffe8d0;
+  font-weight: 700;
+  font-size: clamp(14px, 1.25rem, 26px);
+  text-shadow: 2px 2px 4px #000;
 }
-#narrBox.hidden,#zeusLine.hidden{display:none}
+
+#narrBox.hidden,
+#zeusLine.hidden {
+  display: none;
+}
 
 /* === EFFECTS ============================================= */
-@keyframes shakeScreen{
-  0%,100%{transform:translate(0)}
-  25%{transform:translate(-3px,3px)}
-  50%{transform:translate(3px,-2px)}
-  75%{transform:translate(-2px,3px)}
+@keyframes shakeScreen {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-3px, 3px);
+  }
+  50% {
+    transform: translate(3px, -2px);
+  }
+  75% {
+    transform: translate(-2px, 3px);
+  }
 }
-body.shake{animation:shakeScreen .4s ease-in-out}
-body.fade-out{transition:opacity 2s;opacity:0}
+
+body.shake {
+  animation: shakeScreen 0.4s ease-in-out;
+}
+
+body.fade-out {
+  transition: opacity 2s;
+  opacity: 0;
+}
