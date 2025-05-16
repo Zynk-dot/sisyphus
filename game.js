@@ -1,7 +1,3 @@
-/* =========================================================
-   Sisyphus Game – full script (latest, input‑lock fixed)
-   ========================================================= */
-
 /* === DOM LOOK‑UPS ===================================== */
 const flatScene  = document.getElementById('flatScene');
 const climbScene = document.getElementById('climbScene');
