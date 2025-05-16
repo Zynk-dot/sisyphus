@@ -38,7 +38,7 @@ const LOOPS = [
       { x:140,  text:"Alas, sisyphus had no choice but to get up and start pushing the rock once more. He had truly angered the gods, after all.",        dur:5200 },
       { x:420,  text:"Though he was a cunning and strategic ruler, Sisyphus was also recklessly egotistical, killing off visitors just to flaunt his power.",          dur:5800 },
       { x:740,  text:"As hospitality was a sacred and crucial aspect of Greek culture, Sisyphus's blatant violation of these traditions enraged Zeus.",    dur:5200 },
-      { x:1020, text:"As punishment for his actions and attempted escapes of death, the gods had him punished eternally.,",  dur:4800 }
+      { x:1020, text:"As punishment for his actions and attempted escapes of death, the gods had him punished eternally.",  dur:4800 }
     ]
   },
   {
@@ -67,7 +67,7 @@ const Z = {
 
 /* === CONFIGURABLE CONSTANTS =========================== */
 const CLIMB_END_X   = 1080;   // horizontal goal on slope
-const CLIMB_BASE_Y  = 80;    // lower = lower character on slope
+const CLIMB_BASE_Y  = 60;    // lower = lower character on slope
 const SLIP_CHANCE   = 0.003;  // lower to reduce random slips
 
 /* === CORE STATE ======================================= */
@@ -180,7 +180,7 @@ function updateClimbPos(){
 /* === FALL LOGIC ======================================= */
 function startFall(){
   falling=true; wrapper.classList.add('shake');
-  tapTimes=[];  lastKey='up'; showZeus("Rock slipping!",true,1500);
+  tapTimes=[];  lastKey='up'; showZeus("Rock slipping! (quickly tap arrow key!)",true,1500);
   const st=Date.now();
   fallTimerID=setInterval(()=>{
     const now=Date.now();
