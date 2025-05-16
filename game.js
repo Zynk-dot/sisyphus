@@ -35,19 +35,20 @@ const LOOPS = [
   {
     intro: "Loop 2: Muscles ache… the gods smile.",
     story: [
-      { x:140,  text:"Second ascent. Same rock.",    dur:2400 },
-      { x:420,  text:"Hope is already thinning.",    dur:2400 },
-      { x:780,  text:"Zeus watches, amused.",        dur:2400 },
-      { x:1080, text:"The summit? A mirage.",        dur:2600 }
+      { x:140,  text:"Alas, sisyphus had no choice but to get up and start pushing the rock once more. He had truly angered the gods, after all.",        dur:5200 },
+      { x:420,  text:"Though he was a cunning and strategic ruler, Sisyphus was also recklessly egotistical, killing off visitors just to flaunt his power.",          dur:5800 },
+      { x:740,  text:"As hospitality was a sacred and crucial aspect of Greek culture, Sisyphus's blatant violation of these traditions enraged Zeus.",    dur:5200 },
+      { x:1020, text:"As punishment for his actions and attempted escapes of death, the gods had him punished eternally.,",  dur:4800 }
     ]
   },
   {
     intro: "Loop 3: Hope fades with every push.",
     story: [
-      { x:160,  text:"His spine screams.",           dur:2400 },
-      { x:450,  text:"Stones remember nothing.",     dur:2400 },
-      { x:800,  text:"The gods remember everything.",dur:2400 },
-      { x:1100, text:"Forever is a very long time…", dur:3000 }
+      { x:160,  text:"Sisyphus is no hero. He had no mentor to guide him, no return to his home in the living realm or chance to experience his old lifestyle once again.",dur:5400 },
+      { x:320,  text:"Even so, his journey resembles that of a hero. He is taken out of the comfort of his kingdom, faces countless trials of gods attempting to end him, and ends up with a new life at the end of it all.",dur:6000 },
+      { x:650,  text:"First, Zeus sends out death itself, Thanatos, to chain Sisyphus in the underworld. Using his craftiness, Sisyphus tricks Thanatos and chains him instead.",dur:5200 },
+      { x:800, text:"When Sisyphus is caught, he tells his wife to throw him into the river, eventually washing up in the Styx. In the underworld, he tells Persephone that he his wife disrespected him, and that he should be allowed revenge.", dur:6400 },
+      { x:1050, text:"Persephone agrees to let him back into the living world as long as he returns after punishing his wife. He breaks his promise and does not return. Zeus is maddened by his continuous escape from death.",dur:6100}
     ]
   }
 ];
@@ -65,8 +66,8 @@ const Z = {
 };
 
 /* === CONFIGURABLE CONSTANTS =========================== */
-const CLIMB_END_X   = 1600;   // horizontal goal on slope
-const CLIMB_BASE_Y  = 100;    // lower = lower character on slope
+const CLIMB_END_X   = 1080;   // horizontal goal on slope
+const CLIMB_BASE_Y  = 80;    // lower = lower character on slope
 const SLIP_CHANCE   = 0.003;  // lower to reduce random slips
 
 /* === CORE STATE ======================================= */
@@ -139,12 +140,6 @@ function resetClimb(){
 /* === INTRO TEXT ======================================= */
 setStage('flat');
 resetClimb();
-showNarr(
-  "His punishment was permanent; Sisyphus could only keep pushing the rock up the hill, only to watch it roll down time and time again.\n" +
-  "His task was futile and endless. Many think of Sisyphus's fate as aimless and miserable, as he is forced to repeat the same thing over and over again with no real results.\n\n" +
-  "Albert Camus, the renowned philosopher behind The Myth of Sisyphus, argues otherwise. Camus compares Sisyphus's fate to that of human beings: constantly repeating the same mundane tasks every day, often without a true destination. Even so, Camus does not picture Sisyphus's fate as bleak. Instead, he imagines Sisyphus as content with repeating his eternal task, for Camus believes he can find meaning in his otherwise meaningless life by accepting the absurdities as his own.\n\n" +
-  "After all, one must imagine Sisyphus happy.",6000);
-setTimeout(()=>showZeus("Welcome back, mortal."),6500);
 
 /* === KEY EVENTS ======================================= */
 document.addEventListener('keydown',e=>{
